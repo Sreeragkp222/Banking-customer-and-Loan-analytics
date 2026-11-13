@@ -183,7 +183,7 @@ Average transaction value = AVERAGE(Transactions[Transaction_Amount])
 
 Loan Approval rate =
     DIVIDE(
-        CALCULATE(COUNTROWS(Loans),Loans[Loan_Status]="Approved"),                                                                    CALCULATE(COUNTROWS(Loans),REMOVEFILTERS(Loans[Loan_Status]))
+CALCULATE(COUNTROWS(Loans),Loans[Loan_Status]="Approved"),CALCULATE(COUNTROWS(Loans),REMOVEFILTERS(Loans[Loan_Status]))
 )
 ```
 
