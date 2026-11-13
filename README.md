@@ -168,25 +168,22 @@ The key findings and recommendations drawn from the other four pages.
 
 ## 🧮 Key DAX measures
 
-> TODO: replace the example formulas below with the exact ones from your `_Measures` table. Table and column names must match your model.
-
 ```DAX
-Total Customers = DISTINCTCOUNT ( Customers[CustomerID] )
+Total customers = DISTINCTCOUNT(Customers[Customer_ID])
 
-Total Accounts = DISTINCTCOUNT ( Accounts[AccountID] )
+Total accounts = DISTINCTCOUNT(Accounts[Account_ID])
 
-Total Transactions = COUNTROWS ( Transactions )
+Total transactions = COUNTROWS(Transactions)
 
-Total Transaction Value = SUM ( Transactions[Amount] )
+Total transaction value = SUM(Transactions[Transaction_Amount])
 
-Total Loan Amount = SUM ( Loans[LoanAmount] )
+Total Loan amount = SUM(Loans[Loan_Amount])
 
-Average Account Balance = AVERAGE ( Accounts[Balance] )
+Average transaction value = AVERAGE(Transactions[Transaction_Amount])
 
-Loan Approval Rate =
-DIVIDE (
-    CALCULATE ( COUNTROWS ( Loans ), Loans[LoanStatus] = "Approved" ),
-    COUNTROWS ( Loans )
+Loan Approval rate =
+    DIVIDE(
+        CALCULATE(COUNTROWS(Loans),Loans[Loan_Status]="Approved"),                                                                    CALCULATE(COUNTROWS(Loans),REMOVEFILTERS(Loans[Loan_Status]))
 )
 ```
 
@@ -195,7 +192,7 @@ DIVIDE (
 | Total Customers / Accounts / Transactions | The size of the customer base and activity |
 | Total Transaction Value | How much money moved through transactions |
 | Total Loan Amount | The size of the loan portfolio |
-| Average Account Balance | How much customers hold on average |
+| Average Transaction Value | Typical size of a single transaction |
 | Loan Approval Rate | Share of loan applications that were approved |
 
 ---
